@@ -1,0 +1,28 @@
+<!-- Error messages -->
+{% for field in form %}
+{% if field.errors %}
+    <div class="col-12">
+        <span class="bold">{{ field.label_tag }}</span>
+        {% for error in field.errors %}
+            <span class="text">{{ error }}</span>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endfor %}
+
+<!--non_field error-->
+
+{% for error in form.non_field_errors%}
+<div class= "alert alert-danger"> 
+    <span>{{error}}</span>
+</div>
+{%endfor%}
+
+<!--success messages-->
+{% if messages %}
+{% for message in messages %}
+    <div class= "alert alert-success"> 
+        {{message}}
+    </div>
+{% endfor %}
+{% endif %}
